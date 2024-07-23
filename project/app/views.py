@@ -12,18 +12,58 @@ def home(request):
      # data=Student.objects.order_by().last()                #last value dekhne ke liye 
      # data=Student.objects.order_by().reverse()             #revers order mai value dekhne ke liye
      # data=Student.objects.exclude(stu_name='surya').exclude(stu_city='bhopal')  #ye name dobara repied na ho or city ke liye  
-     # data=Student.objects.order_by("?")                       #ye sir se puchna hai
+     # data=Student.objects.order_by("?")                       #bydefault koi bhi value de dega
      # data=Student.objects.values('stu_name',"stu_city")       #jo value dekhna hai uske liye
      # data=Student.objects.order_by('stu_name')[0:3]           #sliceing mathod 2 
      # data=Student.objects.all()[::-1][:5]                     #reverse sliceing
-     data=Student.objects.values('stu_name',"stu_city")[::-1][:2]
-     
-      
-    
-     print(data)
+     # data=Student.objects.values('stu_name',"stu_city")[::-1][:2]
+     # print(data)
      # print(data.values())
+     # return HttpResponse("<h1>welcome to home page</h1>")
      
-     return HttpResponse("<h1>welcome to home page</h1>")
+     #---------single query------------
+     #-----get-------
+     
+     # data=Student.objects.get(id=2)
+     # # data=Student.objects.get(stu_name="surya Gurjar")  #primary key dena hota hai
+     # data=Student.objects.get(stu_name="surya Gurjar")
+     # print(data)
+     # print(data.id,data.stu_name,data.stu_city)
+     
+     ##first()
+     # data=Student.objects.first()
+     # data=Student.objects.order_by('stu_name').first()
+     # data=Student.objects.order_by('stu_name').last()
+     # data=Student.objects.order_by('-stu_name').first()
+     
+     # print(data)
+     # print(data.id,data.stu_name,data.stu_city)
+     
+     #last()
+     #data=Student.objects.last()
+     # data=Student.objects.order_by('stu_name').last()
+     # data=Student.objects.order_by('-stu_name').last()
+     
+     # print(data)
+     # print(data.id,data.stu_name,data.stu_city)
+     
+     #------create (coloum1=value1 ,coloum2=value2)
+     # data=Student.objects.create(stu_name="neeraj sir",stu_city="jabalpur",stu_email="neeraj@gmail.com")
+     
+     # print(data)
+     # print(data.id,data.stu_name,data.stu_city)
+     
+     #---get or create-----
+     # data=Student.objects.get_or_create(stu_name="surya Gurjar",stu_city="bholpal",stu_email="surya@gmail.com")
+     # print(data)
+     # print(data.id,data.stu_name,data.stu_city)
+     
+     #---update--
+     # data=Student.objects.filter(id=14).update(stu_name="",stu_city="",stu_email="")
+     # print(data)
+     # print(data.id,data.stu_name,data.stu_city)
+     
+     # return HttpResponse(data)
 
 
 

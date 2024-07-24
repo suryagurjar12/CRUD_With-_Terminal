@@ -25,7 +25,7 @@ def home(request):
      #-----get-------
      
      # data=Student.objects.get(id=2)
-     # # data=Student.objects.get(stu_name="surya Gurjar")  #primary key dena hota hai
+     # data=Student.objects.get(id=5)  #primary key dena hota hai
      # data=Student.objects.get(stu_name="surya Gurjar")
      # print(data)
      # print(data.id,data.stu_name,data.stu_city)
@@ -54,16 +54,26 @@ def home(request):
      # print(data.id,data.stu_name,data.stu_city)
      
      #---get or create-----
-     # data=Student.objects.get_or_create(stu_name="surya Gurjar",stu_city="bholpal",stu_email="surya@gmail.com")
-     # print(data)
-     # print(data.id,data.stu_name,data.stu_city)
+     data,create=Student.objects.get_or_create(stu_name="surya Gurjar",stu_city="bholpal",stu_email="surya@gmail.com")
+     print(data)
+     print(data.id,data.stu_name,data.stu_city)
      
      #---update--
      # data=Student.objects.filter(id=14).update(stu_name="",stu_city="",stu_email="")
      # print(data)
      # print(data.id,data.stu_name,data.stu_city)
      
-     # return HttpResponse(data)
+     #-------delete-------filter()
+     # data = Student.objects.get(id=14).delete() or
+     # data = Student.objects.get(id=14)
+     # data.delete()
+     
+     
+     # data0 = Student.objects.filter(stu_name = "Neeraj").delete()
+     # print(data0)
+     # return HttpResponse(data0)
+     
+     return HttpResponse(data)
 
 
 
